@@ -1,64 +1,72 @@
-📱 CCTV IP Webcam Frontend
+# 📱 CCTV IP Webcam Frontend
 Frontend React untuk sistem monitoring CCTV IP Webcam dengan antarmuka yang responsif dan real-time streaming.
 
-🎯 Fitur
-📹 Live Streaming - Tampilan real-time dari multiple kamera
+# 🎯 Fitur
+- 📹 Live Streaming - Tampilan real-time dari multiple kamera
 
-🔐 Authentication - Login/register system
+- 🔐 Authentication - Login/register system
 
-📱 Responsive Design - Optimal di desktop dan mobile
+- 📱 Responsive Design - Optimal di desktop dan mobile
 
-🔄 Auto Retry - Koneksi otomatis ulang jika terputus
+- 🔄 Auto Retry - Koneksi otomatis ulang jika terputus
 
-🎨 Modern UI - Antarmuka yang clean dan user-friendly
+- 🎨 Modern UI - Antarmuka yang clean dan user-friendly
 
-⚡ Real-time Status - Status online/offline kamera
+- ⚡ Real-time Status - Status online/offline kamera
 
-🚀 Teknologi
-React 18 - UI Framework
+# 🚀 Teknologi
+- React 18 - UI Framework
 
-Vite - Build tool dan development server
+- Vite - Build tool dan development server
 
-Tailwind CSS - Styling
+- Tailwind CSS - Styling
 
-Axios - HTTP client
+- Axios - HTTP client
 
-React Router - Navigation
+- React Router - Navigation
 
-JWT - Authentication
+- JWT - Authentication
 
-📦 Instalasi & Setup
-Prerequisites
-Node.js 16+
+# 📦 Instalasi & Setup
+## Prerequisites
+- Node.js 16+
+  
+- Backend server CCTV IP Webcam (terpisah)
+  
+- Aplikasi IP Webcam di perangkat Android (in-case menggunakan kamera HP bekas)
 
-Backend server CCTV IP Webcam (terpisah)
+## 1. Clone Repository (bash)
 
-Aplikasi IP Webcam di perangkat Android
-
-1. Clone Repository
-bash
+```bash
 git clone <frontend-repo-url>
 cd cctv-ip-webcam-frontend
-2. Install Dependencies
-bash
-npm install
-3. Konfigurasi Environment
-Buat file .env:
+```
 
-env
-VITE_BACKEND_URL=http://192.168.1.8:5000
+## 2. Install Dependencies (bash)
+
+```bash
+npm install
+```
+
+## 3. Konfigurasi Environment
+Buat file `.env`:
+```env
+VITE_BACKEND_URL=SECRET_BACKEND_IP_ADDRESS
 VITE_APP_NAME="CCTV Monitoring"
 VITE_MAX_RETRIES=5
-4. Jalankan Development Server
-bash
+```
+## 4. Jalankan Development Server (bash)
+```cmd
 # Development mode
 npm run dev
 
 # Atau
-npm run dev -- --host 192.168.1.8
-Aplikasi akan berjalan di: http://192.168.1.8:5173
+npm run dev -- --host //IP_ADDRESS//
+```
+Aplikasi akan berjalan di: `http://{$ip_address}:{$port_frontend}`
 
-🏗️ Struktur Project
+# 🏗️ Struktur Project
+```text
 text
 src/
 ├── components/
@@ -83,9 +91,12 @@ src/
 │   ├── constants.js             # Konstanta aplikasi
 │   └── helpers.js               # Helper functions
 └── App.jsx                      # Komponen utama
-🔌 Integrasi dengan Backend
-Konfigurasi API
+```
+
+# 🔌 Integrasi dengan Backend
+## Konfigurasi API
 javascript
+```javascript
 // src/services/api.js
 import axios from 'axios';
 
@@ -104,14 +115,16 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
-Menggunakan VideoPlayer
+```
+## Menggunakan VideoPlayer
 jsx
+```jsx
 import VideoPlayer from './components/VideoPlayer';
 
 function CameraView() {
   return (
     <VideoPlayer 
-      url="http://192.168.1.8:5000/video?cameraId=1"
+      url="http://{$ip_address}:{$port_backend}/video?cameraId=1"
       type="mjpeg"
       className="w-full h-64"
       autoRetry={true}
@@ -119,23 +132,24 @@ function CameraView() {
     />
   );
 }
-🎮 Cara Penggunaan
-1. Login
-Buka aplikasi di http://192.168.1.8:5173
+```
+# 🎮 Cara Penggunaan
+## 1. Login
+- Buka aplikasi di `http://{$ip_address}:{$port_frontend}`
 
-Login dengan username dan password
+- Login dengan username dan password
 
-Token akan disimpan otomatis
+- Token akan disimpan otomatis
 
-2. Melihat Live Stream
-Dashboard menampilkan semua kamera
+## 2. Melihat Live Stream
+- Dashboard menampilkan semua kamera
 
-Klik kamera untuk view detail
+- Klik kamera untuk view detail
 
-Stream akan otomatis connect dan retry jika terputus
+- Stream akan otomatis connect dan retry jika terputus
 
-3. Multi-camera View
-jsx
+## 3. Multi-camera View
+```jsx
 import { useCameras } from './hooks/useCameras';
 
 function Dashboard() {
@@ -153,21 +167,24 @@ function Dashboard() {
     </div>
   );
 }
-⚙️ Komponen VideoPlayer
-Props
-Prop	Type	Default	Description
-url	string	required	URL stream MJPEG
-type	string	"mjpeg"	Tipe stream (mjpeg/snapshot)
-className	string	""	Additional CSS classes
-autoRetry	boolean	true	Auto retry on connection loss
-maxRetries	number	5	Maximum retry attempts
-retryDelay	number	2000	Delay between retries (ms)
-onError	function	null	Callback ketika error
-onLoad	function	null	Callback ketika stream loaded
-Contoh Penggunaan
+```
+# ⚙️ Komponen VideoPlayer
+### Props
+| Prop | Type |	Default | Description |
+| :---: | :---: | :---: | :--- |
+| url	| string	| required	| URL stream MJPEG |
+| type	| string	| "mjpeg"	| Tipe stream (mjpeg/snapshot) | 
+| className	| string	| ""	| Additional CSS classes | 
+| autoRetry	| boolean	| true	| Auto retry on connection loss | 
+| maxRetries	| number	| 5	| Maximum retry attempts | 
+| retryDelay	| number	| 2000	| Delay between retries (ms) | 
+| onError	| function	| null	| Callback ketika error | 
+| onLoad	| function	| null	| Callback ketika stream loaded | 
+## Contoh Penggunaan
 jsx
+```jsx
 <VideoPlayer
-  url={`http://192.168.1.8:5000/video?cameraId=3`}
+  url={`http://{$ip_address}:{$port_backend}/video?cameraId=3`}
   type="mjpeg"
   className="rounded-lg shadow-lg"
   autoRetry={true}
@@ -175,11 +192,12 @@ jsx
   onError={(error) => console.error('Stream error:', error)}
   onLoad={() => console.log('Stream loaded successfully')}
 />
-🔧 Konfigurasi
-Environment Variables
-env
+```
+# 🔧 Konfigurasi
+### Environment Variables
+```env
 # Backend API URL
-VITE_BACKEND_URL=http://192.168.1.8:5000
+VITE_BACKEND_URL=http://{$ip_address}:{$port_backend}
 
 # Nama Aplikasi
 VITE_APP_NAME="CCTV Monitoring"
@@ -192,9 +210,10 @@ VITE_AUTO_REFRESH_INTERVAL=30000
 # Feature Flags
 VITE_ENABLE_RECORDINGS=true
 VITE_ENABLE_MULTI_VIEW=true
-Customization
-Styling dengan Tailwind
-jsx
+```
+## Customization
+### Styling dengan Tailwind
+```jsx
 // Custom theme di tailwind.config.js
 module.exports = {
   theme: {
@@ -206,62 +225,69 @@ module.exports = {
     }
   }
 }
-🐛 Troubleshooting
-Masalah Umum
-❌ Stream Tidak Muncul
-Check koneksi backend:
+```
+# 🐛 Troubleshooting
+## Masalah Umum
+### ❌ Stream Tidak Muncul
+### 1. Check koneksi backend:
 
-bash
-curl http://192.168.1.8:5000/api/health
-Test stream langsung:
+```bash
+curl http://{$ip_address}:{$port_backend}/api/health
+```
+### 2. Test stream langsung:
 
-bash
-curl http://192.168.1.8:5000/video?cameraId=1
-Check browser console untuk error CORS
+```bash
+curl http://{$ip_address}:{$port_backend}/video?cameraId=1
+```
+### 3. Check browser console untuk error CORS
 
-❌ Authentication Error
-Pastikan token valid:
+### ❌ Authentication Error
+### 1. Pastikan token valid:
 
-javascript
+```javascript
 localStorage.getItem('token'); // Harus ada nilai
-Check backend authentication:
+```
+### 2. Check backend authentication:
 
-Pastikan endpoint tidak membutuhkan auth untuk development
+### - Pastikan endpoint tidak membutuhkan auth untuk development
 
-❌ Network Error
-Pastikan IP address benar:
+### ❌ Network Error
+### 1. Pastikan IP address benar:
 
-Backend: 192.168.1.8:5000
+- Backend: {$ip_address}:{$port_backend}
 
-Frontend: 192.168.1.8:5173
+- Frontend: {$ip_address}:{$port_frontend}
 
-Check firewall/network settings
+### 2. Check firewall/network settings
 
-Debug Mode
+## Debug Mode
 Aktifkan debug mode di browser console:
 
-javascript
+```javascript
 localStorage.setItem('debug', 'true');
-📱 Responsive Breakpoints
-Mobile: < 768px (1 kolom)
+```
+# 📱 Responsive Breakpoints
+- Mobile: < 768px (1 kolom)
 
-Tablet: 768px - 1024px (2 kolom)
+- Tablet: 768px - 1024px (2 kolom)
 
-Desktop: > 1024px (3-4 kolom)
+- Desktop: > 1024px (3-4 kolom)
 
-🚀 Deployment
+# 🚀 Deployment
 Build untuk Production
-bash
+```bash
 npm run build
+```
 File build akan tersedia di folder dist/
 
-Serve Production Build
-bash
+### Serve Production Build
+```bash
 npm run preview
-Deployment dengan Nginx
+```
+### Deployment dengan Nginx
 Contoh konfigurasi Nginx:
 
-nginx
+```nginx
 server {
     listen 80;
     server_name your-domain.com;
@@ -274,43 +300,45 @@ server {
     
     # Proxy API requests to backend
     location /api {
-        proxy_pass http://192.168.1.8:5000;
+        proxy_pass http://{$ip_address}:{$port_backend};
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
 }
-🔄 Scripts Available
-bash
+```
+# 🔄 Scripts Available
+```bash
 npm run dev          # Development server
 npm run build        # Production build
 npm run preview      # Preview production build
 npm run lint         # Run ESLint
 npm run lint:fix     # Fix ESLint errors
-🤝 Kontribusi
-Fork repository
+```
+# 🤝 Kontribusi
+1. Fork repository
 
-Create feature branch: git checkout -b feature/new-feature
+2. Create feature branch: git checkout -b feature/new-feature
 
-Commit changes: git commit -am 'Add new feature'
+3. Commit changes: git commit -am 'Add new feature'
 
-Push to branch: git push origin feature/new-feature
+4. Push to branch: git push origin feature/new-feature
 
-Submit pull request
+5. Submit pull request
 
-📄 License
+# 📄 License
 MIT License - lihat file LICENSE untuk detail.
 
-🆘 Support
+# 🆘 Support
 Jika mengalami masalah:
 
-Check troubleshooting section
+1. Check troubleshooting section
 
-Pastikan backend server berjalan
+2. Pastikan backend server berjalan
 
-Check console browser untuk error messages
+3. Check console browser untuk error messages
 
-Pastikan konfigurasi environment variables benar
+4. Pastikan konfigurasi environment variables benar
 
-Backend Repository: CCTV IP Webcam Backend
+Backend Repository: CCTV IP Webcam Backend (belum insert link
 
 Dibuat dengan ❤️ untuk monitoring CCTV berbasis React
