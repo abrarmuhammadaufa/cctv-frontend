@@ -1,4 +1,4 @@
-# 📱 CCTV IP Webcam Frontend
+# 📱 CCTV IP Webcam Frontend (Masih dalam Pengembangan)
 Frontend React untuk sistem monitoring CCTV IP Webcam dengan antarmuka yang responsif dan real-time streaming.
 
 # 🎯 Fitur
