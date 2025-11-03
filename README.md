@@ -135,7 +135,7 @@ function CameraView() {
 ```
 # 🎮 Cara Penggunaan
 ## 1. Login
-- Buka aplikasi di `http://{$ip_address}:{$port_frontend}`
+- Buka aplikasi di `http://{$ip_address}:{$port_frontend}` (masih development)
 
 - Login dengan username dan password
 
