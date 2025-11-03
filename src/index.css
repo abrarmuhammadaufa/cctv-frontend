@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------
+   Font Modern
+-------------------------- */
+html {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+/* -------------------------
+   Body / Background
+-------------------------- */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #1f1f1f;
+  color: white;
+}
+
+/* -------------------------
+   Links
+-------------------------- */
+a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------
+   Buttons
+   (Optional, Tailwind preferred)
+-------------------------- */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* -------------------------
+   Global headings
+-------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* -------------------------
+   Responsive fixes
+-------------------------- */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
