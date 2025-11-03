@@ -65,7 +65,7 @@ npm run dev -- --host //IP_ADDRESS//
 ```
 Aplikasi akan berjalan di: `http://{$ip_address}:{$port_frontend}`
 
-# 🏗️ Struktur Project
+# 🏗️ Struktur Project (Kemungkinan Berubah)
 ```text
 text
 src/
