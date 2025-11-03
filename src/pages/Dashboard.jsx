@@ -80,7 +80,7 @@ export default function Dashboard() {
 
             if (err.code === 'ERR_NETWORK' || err.message?.includes('CONNECTION_REFUSED')) {
                 setServerOnline(false);
-                setError("Backend server tidak dapat dihubungi. Pastikan server berjalan di http://192.168.1.8:5000");
+                setError("Backend server tidak dapat dihubungi. Pastikan server berjalan di http://{$ip_address}:{$port_backend}");
             } else {
                 setError("Gagal memuat data dashboard: " + (err.response?.data?.message || err.message));
             }
@@ -152,7 +152,7 @@ export default function Dashboard() {
             {!serverOnline && (
                 <div className="bg-red-500 text-white p-4 text-center">
                     <p className="font-bold">⚠️ Backend Server Offline</p>
-                    <p>Pastikan backend server berjalan di http://192.168.1.8:5000</p>
+                    <p>Pastikan backend server berjalan di http://{$ip_address}:{$port_backend}</p>
                     <button
                         onClick={loadDashboardData}
                         className="mt-2 bg-white text-red-500 px-4 py-2 rounded hover:bg-gray-100"
@@ -400,10 +400,6 @@ export default function Dashboard() {
                     </div>
                 </div>
             )}
-            {/* <VideoPlayer
-                url={`http://192.168.1.6:4747/video`}
-                type="mjpeg"
-            /> */}
         </div>
     );
 }
