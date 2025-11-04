@@ -172,14 +172,14 @@ function Dashboard() {
 ### Props
 | Prop | Type |	Default | Description |
 | :---: | :---: | :---: | :--- |
-| url	| string	| required	| URL stream MJPEG |
-| type	| string	| "mjpeg"	| Tipe stream (mjpeg/snapshot) | 
-| className	| string	| ""	| Additional CSS classes | 
-| autoRetry	| boolean	| true	| Auto retry on connection loss | 
-| maxRetries	| number	| 5	| Maximum retry attempts | 
-| retryDelay	| number	| 2000	| Delay between retries (ms) | 
-| onError	| function	| null	| Callback ketika error | 
-| onLoad	| function	| null	| Callback ketika stream loaded | 
+| `url`	| string	| required	| URL stream MJPEG |
+| `type`	| string	| `"mjpeg"`	| Tipe stream (`mjpeg`/`snapshot`) | 
+| `className`	| string	| `""`	| Additional CSS classes | 
+| `autoRetry`	| boolean	| `true`	| Auto retry on connection loss | 
+| `maxRetries`	| number	| `5`	| Maximum retry attempts | 
+| `retryDelay`	| number	| `2000`	| Delay between retries (ms) | 
+| `onError`	| function	| `null`	| Callback ketika error | 
+| `onLoad`	| function	| `null`	| Callback ketika stream loaded | 
 ## Contoh Penggunaan
 jsx
 ```jsx
