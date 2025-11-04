@@ -1,5 +1,5 @@
-# 📱 CCTV IP Webcam Frontend (Masih dalam Pengembangan)
-Frontend React untuk sistem monitoring CCTV IP Webcam dengan antarmuka yang responsif dan real-time streaming.
+# 📱 CCTV IP Webcam Frontend Pribadi (Masih dalam Pengembangan)
+Frontend React untuk sistem monitoring CCTV IP Webcam dengan antarmuka yang responsif dan real-time streaming. Berawal dari kerabat yang terkena musibah pencurian barang berharga oleh orang tak dikenal. Bersamaan dengan kejadian tersebut tidak ada satupun rekaman CCTV sekitar rumah kerabat yang bisa dimintakan sebagai bukti/petunjuk untuk dapat menemukan pelaku tersebut. Sehingga dari kejadian tersebut saya sebagai programmer berinisiatif mengembangkan *Monitoring System* berbasis *Web* ini agar bisa digunakan sebagai salah satu sistem keamanan yang ada di lingkungan rumah.
 
 # 🎯 Fitur
 - 📹 Live Streaming - Tampilan real-time dari multiple kamera
